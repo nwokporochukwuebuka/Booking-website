@@ -147,7 +147,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EADDRESS')
 EMAIL_HOST_PASSWORD = config('EPASSWORD')
-'''EMAIL_HOST_USER = nwokporochukwuebuka@yahoo.comEMAIL_HOST_PASSWORD = 'Einstein_newton2@'''
 
 
 # Configuring the environment file 
@@ -158,21 +157,3 @@ INTERNAL_IPS = ['127.0.0.1']
 
 HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
 
-PORT = 8000       # Port to listen on (non-privileged ports are > 1023)
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-
-    s.bind((HOST, PORT))
-
-    s.listen()
-
-    conn, addr = s.accept()
-
-    with conn:
-        print('Connected by', addr)
-
-    while True:
-        data = conn.recv(1024)
-        if not data:
-            break
-        conn.sendall(data)
